@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        set<int> intSet;
+        for(int i=0;i<nums.size();i++){
+            if (intSet.find(nums[i]) == intSet.end())
+            intSet.insert(nums[i]);
+        }
+        int k=intSet.size();
+        set<int> :: iterator itr;
+        int i=0;
+        itr = intSet.begin();
+        while(i<k && itr != intSet.end()){
+            nums[i]=*itr;
+            i++;
+            itr++;
+        }
+        return k;
+    }
+};
