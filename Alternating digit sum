@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int alternateDigitSum(int n) {
+        int rev=0;
+        while(n!=0){
+            rev=rev*10+(n%10);
+            n=n/10;
+        }
+        int sum=0;
+        int i=0;
+        while(rev!=0){
+            sum=sum+((rev%10)*pow(-1,i));
+            rev=rev/10;
+            i++;
+        }
+        return sum;
+    }
+};
