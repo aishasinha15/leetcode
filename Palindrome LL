@@ -1,0 +1,41 @@
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        bool flag =false;
+        vector<long long> A;
+        vector<long long> B;
+     ListNode* llist=head;
+     while(llist!=NULL){
+         A.push_back(llist->val);
+         llist=llist->next;
+     }
+      ListNode* prev;
+        ListNode* temp;
+        if(head==NULL)
+        return NULL;
+        if(head->next!=NULL)
+        temp=head->next;
+        head->next=NULL;
+        while(temp!=NULL){
+            prev=temp->next;
+            temp->next=head;
+            head=temp;
+            temp=prev;
+        }
+        
+        while(head!=NULL){
+         B.push_back(head->val);
+         head=head->next;
+     }
+         
+     for(long long i=0;i<A.size();i++){
+         if(A[i]==B[i])
+            flag=true;
+         else{
+             flag=false;
+             break;
+         }   
+     }
+     return flag;
+    }
+};
