@@ -1,0 +1,27 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        vector<char> A;
+        for(int i=0;i<s.length();i++){
+
+            if(s[i]>=65 && s[i]<=90){
+                s[i] = tolower(s[i]);
+                A.push_back(s[i]);
+            }
+
+            else if(s[i]>=97 && s[i]<=122)
+            A.push_back(s[i]);
+
+            else if(s[i]>=48 && s[i]<=57)
+            A.push_back(s[i]); 
+        }
+
+        vector<char> B;
+        B=A;
+        reverse(A.begin(),A.end());
+        if(B==A)
+        return true;
+        else
+        return false;
+    }
+};
