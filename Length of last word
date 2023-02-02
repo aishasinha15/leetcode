@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        if(s.length()==1)
+        return 1;
+        vector<char> A;
+        for(int i=0;i<s.length();i++){
+            A.push_back(s[i]);
+        }
+
+        reverse(A.begin(),A.end());
+
+        int count=0;
+        if(A[0]!=' '){
+        for(int i=0;i<A.size();i++){
+            if(A[i]==' ')
+            break;
+            if(A[i]!=' ')
+            count++;
+        }
+        }
+
+        else{
+           int k=0;
+           while(A[k]==' '){
+               k++;
+           }
+           for(int i=k;i<A.size();i++){
+               if(A[i]==' ')
+               break;
+               count++;
+              
+           }
+        }
+
+        return count;
+    }
+};
