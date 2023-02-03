@@ -1,0 +1,33 @@
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if(head==NULL)
+        return NULL;
+        vector<int> O;
+        vector<int> E;
+        vector<int> C;
+        int i=1;
+        while(head !=NULL){
+            int d=head->val;
+            if(i%2==1)
+            O.push_back(d);
+            else
+            E.push_back(d);
+            i++;
+            head=head->next;
+        }
+        C=O;
+        for(int i=0;i<E.size();i++){
+            C.push_back(E[i]);
+        }
+        ListNode* t=new ListNode(C[0]);
+        ListNode* r=t;
+        for(int i=1;i<C.size();i++){
+            ListNode* pmt= new ListNode(C[i]);
+            t->next=pmt;
+            t=t->next;
+        }
+        return r;
+        }
+    
+};
