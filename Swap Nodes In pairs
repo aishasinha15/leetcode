@@ -1,0 +1,45 @@
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        if(head==NULL)
+        return NULL;
+        if(head->next==NULL)
+        return head;
+
+        vector<int> A;
+        int count=0;
+        ListNode* p=head;
+        while(p!=NULL){
+            count++;
+            p=p->next;
+        }
+        if(count%2==0){
+            while(head!=NULL){
+                if(head->next!=NULL)
+                A.push_back(head->next->val);
+                A.push_back(head->val);
+                head=head->next->next;
+        }
+        }
+        else{
+            while(head!=NULL){
+                if(head->next!=NULL)
+                A.push_back(head->next->val);
+                A.push_back(head->val);
+                head=head->next->next;
+                if(head->next==NULL)
+                break;
+        }
+        A.push_back(head->val);
+        }
+
+        ListNode* t= new ListNode(A[0]);
+        ListNode* headnew=t;
+        for(int i=1;i<A.size();i++){
+            ListNode* pmt=new ListNode(A[i]);
+            headnew->next=pmt;
+            headnew=headnew->next;
+        }
+        return t;
+    }
+};
