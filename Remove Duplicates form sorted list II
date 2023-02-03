@@ -1,0 +1,32 @@
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        if(head==NULL)
+        return NULL;
+        set<int> A;
+        set<int> B;
+        vector<int> C;
+        while(head!=NULL){
+            int d=head->val;
+            if(A.find(d)==A.end())
+            A.insert(d);
+            else
+            B.insert(d);
+            head=head->next;
+        }
+         if (B==A)
+         return NULL; 
+        for(auto i:A){
+            if(B.find(i)==B.end())
+            C.push_back(i);
+        }
+        ListNode* t=new ListNode(C[0]);
+        ListNode* r=t;
+        for(int i=1;i<C.size();i++){
+            ListNode* pmt= new ListNode(C[i]);
+            t->next=pmt;
+            t=t->next;
+        }
+        return r;
+    }
+};
