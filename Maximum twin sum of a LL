@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int pairSum(ListNode* head) {
+        vector<int> A;
+        while(head!=NULL){
+            A.push_back(head->val);
+            head=head->next;
+        }
+        vector<int> B;
+        B=A;
+        reverse(A.begin(),A.end());
+        int sum,max=0;
+        for(int i=0;i<A.size();i++){
+            sum=A[i]+B[i];
+            if(sum>max)
+            max=sum;
+        }
+        return max;
+    }
+};
