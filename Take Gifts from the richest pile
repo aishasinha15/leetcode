@@ -1,0 +1,22 @@
+class Solution {
+public:
+    long long pickGifts(vector<int>& gifts, int k) {
+        int i=1;
+        while(i<=k){
+            int max=0,maxi;
+            for(int i=0;i<gifts.size();i++){
+                if(gifts[i]>max){
+                    max=gifts[i];
+                    maxi=i;
+                }
+            }
+            gifts[maxi]=sqrt(max);
+            i++;
+        }
+        long long sum=0;
+        for(int i=0;i<gifts.size();i++){
+            sum=sum+gifts[i];
+        }
+        return sum;
+    }
+};
