@@ -1,0 +1,30 @@
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        bool flag=false;
+        bool flag2=true;
+        map<int,int> mp;
+        for(int i=0;i<nums.size();i++){
+            mp[nums[i]]++;
+        }
+        for(auto i:mp){
+            if(i.second>1){
+            flag2=false;
+            break;
+            }
+        }
+        if(flag2==true)
+        return false;
+        for(int i=0;i<nums.size();i++){
+            int j=i+1;
+            while(abs(i - j)<=k &&  j<nums.size()){
+                if(nums[i]==nums[j]){
+                    flag=true;
+                    break;
+                }
+               j++; 
+            }
+        }
+        return flag;
+    }
+};
