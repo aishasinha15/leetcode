@@ -16,3 +16,4 @@ public:
 
 
 //do by another method with o(1) time complexity
+//(num - 1) % 9 + 1
