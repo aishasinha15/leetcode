@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int differenceOfSum(vector<int>& nums) {
+        int elementSum=0,diff,digitSum=0;
+        for(int i=0;i<nums.size();i++){
+            elementSum+=nums[i];
+        }
+        for(int i=0;i<nums.size();i++){
+            int j=nums[i];
+            while(j!=0){
+                digitSum+=j%10;
+                j/=10;
+            }
+        }
+        diff=abs(digitSum-elementSum);
+        return diff;
+    }
+};
