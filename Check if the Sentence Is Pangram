@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool checkIfPangram(string sentence) {
+        bool flag=true;
+        map<char,int> mp;
+        for(char ch='a'; ch<='z';ch++){
+            mp[ch]=0;
+        }
+        if(sentence.length()>=26){
+            
+            for(int i=0;i<sentence.length();i++){
+                mp[sentence[i]]++;
+            }
+            for(auto i:mp){
+                cout<<i.first<<" -> "<<i.second<<endl;
+            }
+            for(auto i:mp){
+                if(i.second==0){
+                    flag=false;
+                    return false;
+                    break;
+                }
+            }
+            return flag;
+        }
+        else 
+        return false;
+    }
+};
