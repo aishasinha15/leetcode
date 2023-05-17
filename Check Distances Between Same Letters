@@ -1,0 +1,29 @@
+class Solution {
+public:
+    bool checkDistances(string s, vector<int>& distance) {
+        int i=0;
+        bool flag;
+        
+
+        for(char ch='a';ch<='z';ch++){
+            string s1="";
+            s1+=ch;
+            size_t found = s.find(s1);
+            int first = found;
+            found = s.find(s1,found+1);
+            int second = found;
+            int diff =abs(first-second+1);
+            cout<<diff;
+            if (found != string::npos){
+            if(diff==distance[i])
+            flag=true;
+            else{
+                flag=false;
+                break;
+            }
+        }
+            i++;
+        }
+        return flag;
+    }
+};
