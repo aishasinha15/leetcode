@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+         vector<vector<int>> A;
+        A.push_back({1});
+        for(int i=1;i<=rowIndex;i++){
+            vector<int> B;
+            B.push_back(1);
+                for(int k=0;k<(A[i-1].size())-1;k++){
+                    int sum=A[i-1][k]+A[i-1][k+1];
+                    B.push_back(sum);
+                }
+            B.push_back(1);
+            A.push_back(B);
+        }
+    
+    return A[rowIndex];
+    }
+};
